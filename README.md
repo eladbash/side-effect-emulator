@@ -10,27 +10,20 @@ Easy to setup and use - 3 lines of configuration and you can test your single pa
 * Create side effects file - the name is not important and export an array of side effects:
 	```javascript
 		//side-effects-my-app.js
-		var consoleSideEffect = {
-			id: 'console-effect',
-			run: function() {
-				console.log("x");
-			},
-			simulate: function() {
-				console.log("simulate x");
-			}
-		};
+		import SideEffectJS from 'side-effect-js';
+		var newConsoleEffect = SideEffectJS.CreateEffect('console-effect',
+			() => { console.log("X"); },
+			() => { console.log("x simulate"); }
+		);
 
-		var fetchEffect = {
-			id: 'fetch-effect',
-			run: () => {
-				return fetch('http://www.google.com');
-			},
-			simulate: () => {
-				return Promise.resolve("google test");
+		var fetchEffect = SideEffectJS.CreateEffect('fetch-effect',
+			() => { return fetch('http://www.google.com'); },
+			() => {
+				return new Promise(resolve => setTimeout(() => resolve("google test"), 2000));
 			}
-		};
+		);
 
-		export default [consoleSideEffect, fetchEffect];
+		export default [newConsoleEffect, fetchEffect];
 	```
 	**Note**: side effect is an object that must contain: id: string, run: func, simulate: func - id is unique, defining duplicate ids will throw an error `SideffectsJS load failed, Found duplicate id in effects:$id` on load.
 	
