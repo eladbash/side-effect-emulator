@@ -30,7 +30,7 @@ Easy to setup and use - 3 lines of configuration and you can test your single pa
 			}
 		};
 
-		exprot default [consoleSideEffect, fetchEffect];
+		export default [consoleSideEffect, fetchEffect];
 	```
 	**Note**: side effect is an object that must contain: id: string, run: func, simulate: func - id is unique, defining duplicate ids will throw an error `SideffectsJS load failed, Found duplicate id in effects:$id` on load.
 	
