@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "side-effect-js": "0.0.3-alpha"
+    "side-effect-js": "0.0.3-alpha",
+    "node-fetch": "^2.6.0"
   }
 }
