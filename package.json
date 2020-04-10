@@ -30,6 +30,5 @@
   },
   "homepage": "https://github.com/eladbash/side-effect-emulator#readme",
   "dependencies": {
-    "@types/node": "^13.11.1"
   }
 }
