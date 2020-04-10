@@ -1,3 +1,4 @@
+![](https://github.com/eladbash/side-effect-emulator/blob/master/logo.png)
 # Side Effect JS
 Easy to setup and use - 3 lines of configuration and you can test your single page application like it's really connected to an API / Writes to files etc.
 
