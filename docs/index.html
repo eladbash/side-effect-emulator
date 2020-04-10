@@ -1,0 +1,214 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>side-effect-js</title>
+	<meta name="description" content="Documentation for side-effect-js">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">side-effect-js</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1>side-effect-js</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<p><img src="https://github.com/eladbash/side-effect-emulator/blob/master/logo.png" alt=""></p>
+				<a href="#side-effect-js" id="side-effect-js" style="color: inherit; text-decoration: none;">
+					<h1>Side Effect JS</h1>
+				</a>
+				<p>Easy to setup and use - 3 lines of configuration and you can test your single page application like it&#39;s really connected to an API / Writes to files etc.</p>
+				<a href="#versions" id="versions" style="color: inherit; text-decoration: none;">
+					<h2>Versions:</h2>
+				</a>
+				<ul>
+					<li>V1.0.0 - Current</li>
+				</ul>
+				<a href="#how-to-use" id="how-to-use" style="color: inherit; text-decoration: none;">
+					<h2>How to use:</h2>
+				</a>
+				<ul>
+					<li><p>Install <code>side-effect-js</code> from npm : <code>npm install side-effect-js --save</code></p>
+					</li>
+					<li><p>Create side effects file - the name is not important and export an array of side effects:</p>
+						<pre><code class="language-javascript">      <span class="hljs-comment">//side-effects-my-app.js</span>
+      <span class="hljs-keyword">import</span> SideEffectJS <span class="hljs-keyword">from</span> <span class="hljs-string">'side-effect-js'</span>;
+      <span class="hljs-keyword">var</span> newConsoleEffect = SideEffectJS.CreateEffect(<span class="hljs-string">'console-effect'</span>,
+          () =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"X"</span>); },
+          () =&gt; { <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"x simulate"</span>); }
+      );
+
+      <span class="hljs-keyword">var</span> fetchEffect = SideEffectJS.CreateEffect(<span class="hljs-string">'fetch-effect'</span>,
+          () =&gt; { <span class="hljs-keyword">return</span> fetch(<span class="hljs-string">'http://www.google.com'</span>); },
+          () =&gt; {
+              <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-params">resolve</span> =&gt;</span> setTimeout(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> resolve(<span class="hljs-string">"google test"</span>), <span class="hljs-number">2000</span>));
+          }
+      );
+
+      <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> [newConsoleEffect, fetchEffect];</code></pre>
+						<p>  <strong>Note</strong>: side effect is an object that must contain: id: string, run: func, simulate: func - id is unique, defining duplicate ids will throw an error <code>SideffectsJS load failed, Found duplicate id in effects:$id</code> on load.</p>
+					</li>
+				</ul>
+				<ul>
+					<li><p>On the root of your app - load all side effects to <strong>SideEffectJS</strong>:</p>
+						<pre><code class="language-javascript">      <span class="hljs-comment">//App.js or index.js</span>
+      <span class="hljs-keyword">import</span> sideEffects <span class="hljs-keyword">from</span> <span class="hljs-string">'./side-effects-my-app.js'</span>
+      <span class="hljs-keyword">import</span> SideEffectJS <span class="hljs-keyword">from</span> <span class="hljs-string">'side-effect-js'</span>;
+      SideEffectJS.Load(sideEffects);</code></pre>
+					</li>
+					<li><p>When you want to use the <code>simulate</code> effect - just add after <code>SideEffectJS.Load</code> this line: <code>SideEffectJS.UseSimulator();</code></p>
+						<p>   <strong>Don&#39;t use</strong> <code>SideEffectJS.UseSimulator()</code> on production.</p>
+					</li>
+					<li><p>Consume effects from <strong>SideEffectJS</strong>: </p>
+						<pre><code class="language-javascript">      <span class="hljs-keyword">import</span> SideEffectJS <span class="hljs-keyword">from</span> <span class="hljs-string">'side-effect-js'</span>;
+      <span class="hljs-keyword">var</span> effect = SideEffectJS.Get(<span class="hljs-string">'fetch-effect'</span>);
+      effect().then(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(x));</code></pre>
+						<a href="#what-do-you-need-it-for" id="what-do-you-need-it-for" style="color: inherit; text-decoration: none;">
+							<h2>What do you need it for?</h2>
+						</a>
+						<p>If you are developing single page application (Frontend) or Node.js apps (Backend) - most of the times you will have a server that returns responses to your client.</p>
+					</li>
+				</ul>
+				<p>Almost any application has side effects:</p>
+				<ul>
+					<li>Using AJAX to call remote servers (Your REST API / Firebase or other serverless).</li>
+					<li>Reading / Writing to files (on the server side)</li>
+				</ul>
+				<p>In order to mock those I/O operations - you need to change your code frequently - means you should replace those I/O with some &quot;stub&quot; code.</p>
+				<p>So - what can we do better?</p>
+				<a href="#use-the-side-effect-method" id="use-the-side-effect-method" style="color: inherit; text-decoration: none;">
+					<h3>Use the side-effect method</h3>
+				</a>
+				<p>Write all side effects in some aggregated place and load real / stub behaviour on run time.</p>
+				<a href="#example" id="example" style="color: inherit; text-decoration: none;">
+					<h4>Example:</h4>
+				</a>
+				<p>Let&#39;s assume we are using <strong>redux-thunk</strong> or <strong>redux-saga</strong> and we need to fetch some data.
+				What will we do with this data? save it to the state - and baiscally it will cause the UI to re-render and display something. </p>
+				<p>So instead of using this example thunk we will use the side-effects approach:</p>
+				<pre><code class="language-javascript"><span class="hljs-comment">//some-redux-thunk-example</span>
+
+<span class="hljs-keyword">const</span> myThunk = <span class="hljs-function">(<span class="hljs-params">username, password</span>) =&gt;</span> {
+    dispatch(<span class="hljs-string">'LOGIN_STARTED'</span>);
+    <span class="hljs-comment">// I.O operation</span>
+    fetch(<span class="hljs-string">'myapi.com/login'</span>,
+        {
+            <span class="hljs-attr">username</span>:username,
+            <span class="hljs-attr">password</span>:password
+        })
+        .then(<span class="hljs-function"><span class="hljs-params">token</span> =&gt;</span> dispatch(<span class="hljs-string">'LOGIN_SUCCESS'</span>, token)
+        .catch(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> dispatch(<span class="hljs-string">'LOGIN_FAILED'</span>, err);
+}</code></pre>
+				<p>This is how it will look when using <strong>Side Effect JS</strong>:</p>
+				<pre><code class="language-javascript"><span class="hljs-comment">//some-redux-thunk-example</span>
+
+<span class="hljs-keyword">import</span> SideEffectJS <span class="hljs-keyword">from</span> <span class="hljs-string">'side-effect-js'</span>;
+
+<span class="hljs-keyword">const</span> myThunk = <span class="hljs-function">(<span class="hljs-params">username, password</span>) =&gt;</span> {
+    dispatch(<span class="hljs-string">'LOGIN_STARTED'</span>);
+    <span class="hljs-comment">// I.O operation</span>
+    SideEffectJS.Get(<span class="hljs-string">'login'</span>)(username, password)
+        .then(<span class="hljs-function"><span class="hljs-params">token</span> =&gt;</span> dispatch(<span class="hljs-string">'LOGIN_SUCCESS'</span>, token)
+        .catch(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> dispatch(<span class="hljs-string">'LOGIN_FAILED'</span>, err);
+}</code></pre>
+				<p>What are the benefits of this approach?</p>
+				<ul>
+					<li>You are aware of IO - because you define side effect for each operation.</li>
+					<li>You can mock and stub any i/o operation - and work on real app like it&#39;s consuming data from an API.</li>
+					<li>You don&#39;t need to handle mock api and configure it all the time.</li>
+					<li>You have one place that holds all the side effects of your app (in DDD terms it enfources infrastructure layer)</li>
+					<li>You app will be easier to test </li>
+					<li>By creating the side effects file you are creating documentations for you app&#39;s side effects.</li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_side_effect_js_.html">&quot;side-<wbr>effect-<wbr>js&quot;</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>

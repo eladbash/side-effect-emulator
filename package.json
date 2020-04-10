@@ -1,13 +1,14 @@
 {
   "name": "side-effect-js",
-  "version": "0.0.8-alpha",
+  "version": "1.0.0",
   "description": "New way to test application in real browser without the need of mock API, emulate any desired state in seconds.",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/side-effect-js.min.js",
+  "types": "dist/side-effect-js.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
-    "prepublish": "tsc"
+    "minify": "uglifyjs --compress --mangle --output dist/side-effect-js.min.js -- dist/side-effect-js.js",
+    "prepublish": "tsc && npm run minify"
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,8 @@
     "url": "https://github.com/eladbash/side-effect-emulator/issues"
   },
   "homepage": "https://github.com/eladbash/side-effect-emulator#readme",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
+    "uglify-js": "^3.8.1"
   }
 }

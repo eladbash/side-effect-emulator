@@ -1,0 +1,7 @@
+docs/
+test-directory/
+logo.png
+tsconfig.json
+.vs
+side-effect-js.ts
+dist/side-effect-js.js

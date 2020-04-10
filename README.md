@@ -3,7 +3,7 @@
 Easy to setup and use - 3 lines of configuration and you can test your single page application like it's really connected to an API / Writes to files etc.
 
 ## Versions:
-* 0.0.8-alpha - Current
+* V1.0.0 - Current
 
 ## How to use:
 * Install `side-effect-js` from npm : `npm install side-effect-js --save`

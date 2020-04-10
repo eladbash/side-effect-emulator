@@ -1,5 +1,4 @@
-//const SideEffectJS = require('side-effect-js');
-const SideEffectJS = require('../index.js');
+const SideEffectJS = require('side-effect-js').default;
 const fetch = require("node-fetch");
 
 // Define effects
