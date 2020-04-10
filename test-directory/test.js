@@ -1,4 +1,4 @@
-const SideEffectJS = require('./index');
+const SideEffectJS = require('side-effect-js');
 const fetch = require("node-fetch");
 
 var consoleSideEffect = {
@@ -24,6 +24,6 @@ var fetchEffect = {
 var sideEffects = [consoleSideEffect, fetchEffect];
 
 SideEffectJS.Load(sideEffects);
-SideEffectJS.UseSimulator();
+//SideEffectJS.UseSimulator();
 var effect = SideEffectJS.Get('fetch-effect');
 effect().then(x => console.log(x));
