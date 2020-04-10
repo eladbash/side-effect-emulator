@@ -8,7 +8,7 @@ Easy to setup and use - 3 lines of configuration and you can test your single pa
 ## How to use:
 * Install `side-effect-js` from npm : `npm install side-effect-js --save`
 * Create side effects file - the name is not important and export an array of side effects:
-	```
+	```javascript
 		//side-effects-my-app.js
 		var consoleSideEffect = {
 			id: 'console-effect',
@@ -36,7 +36,7 @@ Easy to setup and use - 3 lines of configuration and you can test your single pa
 	
 
 * On the root of your app - load all side effects to **SideEffectJS**:
-	```
+	```javascript
 		//App.js or index.js
 		import sideEffects from './side-effects-my-app.js'
 		import SideEffectJS from 'side-effect-js';
@@ -49,7 +49,7 @@ Easy to setup and use - 3 lines of configuration and you can test your single pa
 	 **Don't use** `SideEffectJS.UseSimulator()` on production.
 
 * Consume effects from **SideEffectJS**: 
-	```
+	```javascript
 		import SideEffectJS from 'side-effect-js';
 		var effect = SideEffectJS.Get('fetch-effect');
 		effect().then(x => console.log(x));
@@ -75,7 +75,7 @@ Let's assume we are using **redux-thunk** or **redux-saga** and we need to fetch
 What will we do with this data? save it to the state - and baiscally it will cause the UI to re-render and display something. 
 
 So instead of using this example thunk we will use the side-effects approach:
-```
+```javascript
 //some-redux-thunk-example
 
 const myThunk = (username, password) => {
@@ -92,7 +92,7 @@ const myThunk = (username, password) => {
 ```
 
 This is how it will look when using **Side Effect JS**:
-```
+```javascript
 //some-redux-thunk-example
 
 import SideEffectJS from 'side-effect-js';
