@@ -107,3 +107,10 @@ What are the benefits of this approach?
 * You have one place that holds all the side effects of your app (in DDD terms it enfources infrastructure layer)
 * You app will be easier to test 
 * By creating the side effects file you are creating documentations for you app's side effects.
+
+### What's next?
+In the next versions there will be full support for:
+
+1. Display all the side effects that your application actually uses in real time.
+2. Better documentations & Examples.
+3. Support for middlewares - so you will be able implement anything you want.
