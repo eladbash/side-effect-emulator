@@ -8,7 +8,7 @@
     "test": "cd ./test-directory && npm test",
     "build": "tsc",
     "minify": "uglifyjs --compress --mangle --output dist/side-effect-js.min.js -- dist/side-effect-js.js",
-    "prepublish": "tsc && npm run minify"
+    "prepublishOnly": "tsc && npm run minify"
   },
   "repository": {
     "type": "git",
