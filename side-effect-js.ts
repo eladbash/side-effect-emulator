@@ -46,12 +46,24 @@ const SideEffectJS: SideEffectJS = (function () {
         return Promise.resolve(_history);
     };
 
+    function reset() {
+        _isSimulating = false;
+        _history = [];
+        _sideEffects = [];
+    }
+
+    function getEffects() {
+        return _sideEffects;
+    }
+
     return {
         Load: loadSideEffects,
         Get: getEffect,
         UseSimulator: useSimulator,
         CreateEffect: createEffect,
-        GetHistoryAsync: getHistory
+        GetHistoryAsync: getHistory,
+        Reset: reset,
+        GetAllEffects: getEffects
     };
 })();
 
@@ -61,6 +73,8 @@ export interface SideEffectJS {
     UseSimulator: () => void,
     CreateEffect: (id: string, run: () => any, simulate: () => any) => SideEffect,
     GetHistoryAsync: () => Promise<Array<HistoryItem>>
+    Reset: () => void
+    GetAllEffects: () => Array<SideEffect>
 };
 
 export interface SideEffect {
