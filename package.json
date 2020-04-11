@@ -5,7 +5,7 @@
   "main": "dist/side-effect-js.min.js",
   "types": "dist/side-effect-js.d.ts",
   "scripts": {
-    "test": "cd ./test-directory && npm test",
+    "test": "cd ./test-directory && npm i && npm test",
     "build": "tsc",
     "minify": "uglifyjs --compress --mangle --output dist/side-effect-js.min.js -- dist/side-effect-js.js",
     "prepublishOnly": "tsc && npm run minify"
