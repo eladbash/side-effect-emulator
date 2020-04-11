@@ -1,5 +1,5 @@
 ![](https://github.com/eladbash/side-effect-emulator/blob/master/logo.png)
-# Side Effect JS
+# Side Effect JS ![side-effect-js CI](https://github.com/eladbash/side-effect-emulator/workflows/side-effect-js%20CI/badge.svg)
 Easy to setup and use - 3 lines of configuration and you can test your single page application like it's really connected to an API / Writes to files etc.
 
 ## Versions:
