@@ -34,7 +34,7 @@ const SideEffectJS: SideEffectJS = (function () {
         _isSimulating = true;
     };
 
-    function createEffect(id: string, run: () => any, simulate: () => any): SideEffect {
+    function createEffect(id: string, run: (...args: any[]) => any, simulate: (...args: any[]) => any): SideEffect {
         return {
             id: id,
             run: run,
@@ -71,7 +71,7 @@ export interface SideEffectJS {
     Load: (effects: Array<SideEffect>) => void,
     Get: (effectId: string) => any,
     UseSimulator: () => void,
-    CreateEffect: (id: string, run: () => any, simulate: () => any) => SideEffect,
+    CreateEffect: (id: string, run: (...args: any[]) => any, simulate: (...args: any[]) => any) => SideEffect,
     GetHistoryAsync: () => Promise<Array<HistoryItem>>
     Reset: () => void
     GetAllEffects: () => Array<SideEffect>
@@ -79,8 +79,8 @@ export interface SideEffectJS {
 
 export interface SideEffect {
     id: string,
-    run: () => any,
-    simulate: () => any
+    run: (...args: any[]) => any,
+    simulate: (...args: any[]) => any
 };
 
 export interface HistoryItem {
