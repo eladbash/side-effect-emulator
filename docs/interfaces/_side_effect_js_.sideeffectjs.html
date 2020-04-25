@@ -86,8 +86,10 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_side_effect_js_.sideeffectjs.html#createeffect" class="tsd-kind-icon">Create<wbr>Effect</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_side_effect_js_.sideeffectjs.html#get" class="tsd-kind-icon">Get</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_side_effect_js_.sideeffectjs.html#getalleffects" class="tsd-kind-icon">Get<wbr>All<wbr>Effects</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_side_effect_js_.sideeffectjs.html#gethistoryasync" class="tsd-kind-icon">Get<wbr>History<wbr>Async</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_side_effect_js_.sideeffectjs.html#load" class="tsd-kind-icon">Load</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_side_effect_js_.sideeffectjs.html#reset" class="tsd-kind-icon">Reset</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_side_effect_js_.sideeffectjs.html#usesimulator" class="tsd-kind-icon">Use<wbr>Simulator</a></li>
 							</ul>
 						</section>
@@ -99,10 +101,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="createeffect" class="tsd-anchor"></a>
 					<h3>Create<wbr>Effect</h3>
-					<div class="tsd-signature tsd-kind-icon">Create<wbr>Effect<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, run<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span>, simulate<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="_side_effect_js_.sideeffect.html" class="tsd-signature-type">SideEffect</a></div>
+					<div class="tsd-signature tsd-kind-icon">Create<wbr>Effect<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, run<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span>, simulate<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="_side_effect_js_.sideeffect.html" class="tsd-signature-type">SideEffect</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in side-effect-js.ts:62</li>
+							<li>Defined in <a href="https://github.com/eladbash/side-effect-emulator/blob/97774ca/side-effect-js.ts#L74">side-effect-js.ts:74</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -110,7 +112,7 @@
 						<ul class="tsd-parameters">
 							<li class="tsd-parameter-signature">
 								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, run<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span>, simulate<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_side_effect_js_.sideeffect.html" class="tsd-signature-type">SideEffect</a></li>
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, run<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span>, simulate<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_side_effect_js_.sideeffect.html" class="tsd-signature-type">SideEffect</a></li>
 								</ul>
 								<ul class="tsd-descriptions">
 									<li class="tsd-description">
@@ -120,14 +122,20 @@
 												<h5>id: <span class="tsd-signature-type">string</span></h5>
 											</li>
 											<li>
-												<h5>run: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span></h5>
+												<h5>run: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span></h5>
 												<ul class="tsd-parameters">
 													<li class="tsd-parameter-signature">
 														<ul class="tsd-signatures tsd-kind-type-literal">
-															<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+															<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
 														</ul>
 														<ul class="tsd-descriptions">
 															<li class="tsd-description">
+																<h4 class="tsd-parameters-title">Parameters</h4>
+																<ul class="tsd-parameters">
+																	<li>
+																		<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+																	</li>
+																</ul>
 																<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
 															</li>
 														</ul>
@@ -135,14 +143,20 @@
 												</ul>
 											</li>
 											<li>
-												<h5>simulate: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span></h5>
+												<h5>simulate: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span></h5>
 												<ul class="tsd-parameters">
 													<li class="tsd-parameter-signature">
 														<ul class="tsd-signatures tsd-kind-type-literal">
-															<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+															<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
 														</ul>
 														<ul class="tsd-descriptions">
 															<li class="tsd-description">
+																<h4 class="tsd-parameters-title">Parameters</h4>
+																<ul class="tsd-parameters">
+																	<li>
+																		<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+																	</li>
+																</ul>
 																<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
 															</li>
 														</ul>
@@ -163,7 +177,7 @@
 					<div class="tsd-signature tsd-kind-icon">Get<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>effectId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in side-effect-js.ts:60</li>
+							<li>Defined in <a href="https://github.com/eladbash/side-effect-emulator/blob/97774ca/side-effect-js.ts#L72">side-effect-js.ts:72</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -189,12 +203,37 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="getalleffects" class="tsd-anchor"></a>
+					<h3>Get<wbr>All<wbr>Effects</h3>
+					<div class="tsd-signature tsd-kind-icon">Get<wbr>All<wbr>Effects<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="_side_effect_js_.sideeffect.html" class="tsd-signature-type">SideEffect</a><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/eladbash/side-effect-emulator/blob/97774ca/side-effect-js.ts#L77">side-effect-js.ts:77</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="_side_effect_js_.sideeffect.html" class="tsd-signature-type">SideEffect</a><span class="tsd-signature-symbol">&gt;</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="_side_effect_js_.sideeffect.html" class="tsd-signature-type">SideEffect</a><span class="tsd-signature-symbol">&gt;</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="gethistoryasync" class="tsd-anchor"></a>
 					<h3>Get<wbr>History<wbr>Async</h3>
 					<div class="tsd-signature tsd-kind-icon">Get<wbr>History<wbr>Async<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="_side_effect_js_.historyitem.html" class="tsd-signature-type">HistoryItem</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in side-effect-js.ts:63</li>
+							<li>Defined in <a href="https://github.com/eladbash/side-effect-emulator/blob/97774ca/side-effect-js.ts#L75">side-effect-js.ts:75</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -219,7 +258,7 @@
 					<div class="tsd-signature tsd-kind-icon">Load<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>effects<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="_side_effect_js_.sideeffect.html" class="tsd-signature-type">SideEffect</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in side-effect-js.ts:59</li>
+							<li>Defined in <a href="https://github.com/eladbash/side-effect-emulator/blob/97774ca/side-effect-js.ts#L71">side-effect-js.ts:71</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -245,12 +284,37 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="reset" class="tsd-anchor"></a>
+					<h3>Reset</h3>
+					<div class="tsd-signature tsd-kind-icon">Reset<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/eladbash/side-effect-emulator/blob/97774ca/side-effect-js.ts#L76">side-effect-js.ts:76</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="usesimulator" class="tsd-anchor"></a>
 					<h3>Use<wbr>Simulator</h3>
 					<div class="tsd-signature tsd-kind-icon">Use<wbr>Simulator<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in side-effect-js.ts:61</li>
+							<li>Defined in <a href="https://github.com/eladbash/side-effect-emulator/blob/97774ca/side-effect-js.ts#L73">side-effect-js.ts:73</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -302,10 +366,16 @@
 								<a href="_side_effect_js_.sideeffectjs.html#get" class="tsd-kind-icon">Get</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_side_effect_js_.sideeffectjs.html#getalleffects" class="tsd-kind-icon">Get<wbr>All<wbr>Effects</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="_side_effect_js_.sideeffectjs.html#gethistoryasync" class="tsd-kind-icon">Get<wbr>History<wbr>Async</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="_side_effect_js_.sideeffectjs.html#load" class="tsd-kind-icon">Load</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_side_effect_js_.sideeffectjs.html#reset" class="tsd-kind-icon">Reset</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="_side_effect_js_.sideeffectjs.html#usesimulator" class="tsd-kind-icon">Use<wbr>Simulator</a>

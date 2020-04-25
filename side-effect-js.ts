@@ -1,7 +1,7 @@
 const SideEffectJS: SideEffectJS = (function () {
 
     var _sideEffects: Array<SideEffect>;
-    var _isSimulating = false;
+    var _isSimulating = process.env.SIMULATE_SIDE_EFFECTS || process.env.REACT_APP_SIMULATE_SIDE_EFFECTS || false;
     var _history: Array<HistoryItem> = [];
 
     function loadSideEffects(effects: Array<SideEffect>): void {

@@ -1,4 +1,4 @@
-const SideEffectJS = require('side-effect-js').default;
+const SideEffectJS = require('../dist/side-effect-js.min.js').default;
 const fetch = require("node-fetch");
 
 // Define effects
@@ -20,7 +20,9 @@ var sideEffects = [newConsoleEffect, fetchEffect];
 SideEffectJS.Load(sideEffects);
 
 // Use simulator mode
-SideEffectJS.UseSimulator();
+// prefare using SIMULATE_SIDE_EFFECTS=1 as node parameter
+// Example: instead of `node example.js` -> use: SIMULATE_SIDE_EFFECTS=1 node example.js -> this is equivalant to running SideEffectJS.UseSimulator() in the code
+//SideEffectJS.UseSimulator();
 
 //Execute effects
 var consoleEffectResult = SideEffectJS.Get('console-effect');

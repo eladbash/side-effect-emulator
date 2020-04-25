@@ -3,7 +3,7 @@
 Easy to setup and use - 3 lines of configuration and you can test your single page application like it's really connected to an API / Writes to files etc.
 
 ## Versions:
-* V1.1.0 - Current
+* V2.0.0 - Current
 
 ## How to use:
 * Install `side-effect-js` from npm : `npm install side-effect-js --save`
@@ -12,7 +12,7 @@ Easy to setup and use - 3 lines of configuration and you can test your single pa
 		//side-effects-my-app.js
 		import SideEffectJS from 'side-effect-js';
 		var newConsoleEffect = SideEffectJS.CreateEffect('console-effect',
-			() => { console.log("X"); },
+			() => { console.log("this is the real x"); },
 			() => { console.log("x simulate"); }
 		);
 
@@ -40,6 +40,17 @@ Easy to setup and use - 3 lines of configuration and you can test your single pa
 `
 
 	 **Don't use** `SideEffectJS.UseSimulator()` on production.
+#### Better way to run in simulator mode without Changing the code (v2.0.0+)
+**Old way (changing code):**
+In versions previous to 2.0.0 when you wanted to use the mock side effects you should call `SideEffectJS.UseSimulator();` in your code.
+You can still do it - but then you need to change this line all the time.<br/>
+**New way (use process.env):**
+All you need to do is to initiate `SIMULATE_SIDE_EFFECTS=1` and you will get the mock effects.<br/>
+For example instead of using: `node index.js` run: `SIMULATE_SIDE_EFFECTS=1 node index.js`.
+For **react** applications using CRA (create react app) - you can use `REACT_APP_SIMULATE_SIDE_EFFECTS=1` in the `.env` files.
+
+
+Read more on Create React App .env: <br/> https://create-react-app.dev/docs/adding-custom-environment-variables/
 
 * Consume effects from **SideEffectJS**: 
 	```javascript
@@ -114,3 +125,11 @@ In the next versions there will be full support for:
 1. Display all the side effects that your application actually uses in real time.
 2. Better documentations & Examples.
 3. Support for middlewares - so you will be able implement anything you want.
+
+## Release notes:
+**V2.0.0:** <br/>
+Instead of using `SideEffectJS.UseSimulator()` - which forces you to change code -> use `SIMULATE_SIDE_EFFECTS=1` or `REACT_APP_SIMULATE_SIDE_EFFECTS=1` for CRA apps.
+`SideEffectJS.UseSimulator()` is still an option but it forces you to change code before merging.
+Read more on Create React App .env: <br/> https://create-react-app.dev/docs/adding-custom-environment-variables/
+
+
