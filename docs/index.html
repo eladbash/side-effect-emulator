@@ -200,7 +200,11 @@
 					<em><code>Deprecated (ts only):</code></em><br/>
 					For TypeScript only - <code>CreateEffect</code> is deprecated (backward compatible), instead use: <code>CreateEffectTyped</code>.
 				Typescript usage example:</p>
+				<pre><code class="language-typescript"><span class="hljs-keyword">const</span> effect SideEffectJS.CreateEffectTyped&lt;T,R&gt;(<span class="hljs-string">`some-id`</span>, realFunction, mockFunction)
+<span class="hljs-comment">//T - The model that mock and real function gets</span>
+<span class="hljs-comment">//R - The result type of the mock and real function</span></code></pre>
 				<pre><code class="language-typescript"><span class="hljs-comment">//Example.ts</span>
+<span class="hljs-keyword">import</span> SideEffectJS <span class="hljs-keyword">from</span> <span class="hljs-string">'../side-effect-js'</span>;
 <span class="hljs-keyword">type</span> GetValue = {
     username: <span class="hljs-built_in">string</span>,
     passowrd: <span class="hljs-built_in">string</span>
@@ -214,7 +218,12 @@
     <span class="hljs-keyword">return</span> <span class="hljs-string">"mock"</span>;
 }
 
-<span class="hljs-keyword">const</span> effect = SideEffectJS.CreateEffectTyped&lt;GetValue, <span class="hljs-built_in">string</span>&gt;(<span class="hljs-string">'xxx'</span>, exampleFunctionReal, exampleFunctionMock);</code></pre>
+<span class="hljs-comment">//Old way of creating effect</span>
+<span class="hljs-keyword">const</span> oldEffect = SideEffectJS.CreateEffect(<span class="hljs-string">'id-old'</span>, exampleFunctionReal, exampleFunctionMock);
+
+<span class="hljs-comment">//New way of creating effect(V2.1.0+) - ensures real effect and mock effect has the same contract</span>
+<span class="hljs-keyword">const</span> effect = SideEffectJS.CreateEffectTyped&lt;GetValue, <span class="hljs-built_in">string</span>&gt;(<span class="hljs-string">'xxx'</span>, exampleFunctionReal, exampleFunctionMock);
+</code></pre>
 				<p><strong>V2.0.0:</strong> - <em>04/26/2020</em> <br/>
 					Instead of using <code>SideEffectJS.UseSimulator()</code> - which forces you to change code -&gt; use <code>SIMULATE_SIDE_EFFECTS=1</code> or <code>REACT_APP_SIMULATE_SIDE_EFFECTS=1</code> for CRA apps.
 					<code>SideEffectJS.UseSimulator()</code> is still an option but it forces you to change code before merging.

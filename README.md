@@ -132,7 +132,13 @@ In the next versions there will be full support for:
 For TypeScript only - `CreateEffect` is deprecated (backward compatible), instead use: `CreateEffectTyped`.
 Typescript usage example:
 ```typescript
+const effect SideEffectJS.CreateEffectTyped<T,R>(`some-id`, realFunction, mockFunction)
+//T - The model that mock and real function gets
+//R - The result type of the mock and real function
+```
+```typescript
 //Example.ts
+import SideEffectJS from '../side-effect-js';
 type GetValue = {
     username: string,
     passowrd: string
@@ -146,7 +152,12 @@ const exampleFunctionMock = (loginDetails: GetValue): string => {
     return "mock";
 }
 
+//Old way of creating effect
+const oldEffect = SideEffectJS.CreateEffect('id-old', exampleFunctionReal, exampleFunctionMock);
+
+//New way of creating effect(V2.1.0+) - ensures real effect and mock effect has the same contract
 const effect = SideEffectJS.CreateEffectTyped<GetValue, string>('xxx', exampleFunctionReal, exampleFunctionMock);
+
 ```
 
 **V2.0.0:** - *04/26/2020* <br/>
