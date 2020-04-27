@@ -2,8 +2,8 @@
 # Side Effect JS ![side-effect-js CI](https://github.com/eladbash/side-effect-emulator/workflows/side-effect-js%20CI/badge.svg)
 Easy to setup and use - 3 lines of configuration and you can test your single page application like it's really connected to an API / Writes to files etc.
 
-## Versions:
-* V2.0.0 - Current
+## Version:
+* V2.1.0
 
 ## How to use:
 * Install `side-effect-js` from npm : `npm install side-effect-js --save`
@@ -127,7 +127,40 @@ In the next versions there will be full support for:
 3. Support for middlewares - so you will be able implement anything you want.
 
 ## Release notes:
-**V2.0.0:** <br/>
+**V2.1.0:** - *04/27/2020* <br/>
+*`Deprecated (ts only):`*<br/>
+For TypeScript only - `CreateEffect` is deprecated (backward compatible), instead use: `CreateEffectTyped`.
+Typescript usage example:
+```typescript
+const effect SideEffectJS.CreateEffectTyped<T,R>(`some-id`, realFunction, mockFunction)
+//T - The model that mock and real function gets
+//R - The result type of the mock and real function
+```
+```typescript
+//Example.ts
+import SideEffectJS from '../side-effect-js';
+type GetValue = {
+    username: string,
+    passowrd: string
+}
+
+const exampleFunctionReal = (loginDetails: GetValue): string => {
+    return "real";
+}
+
+const exampleFunctionMock = (loginDetails: GetValue): string => {
+    return "mock";
+}
+
+//Old way of creating effect
+const oldEffect = SideEffectJS.CreateEffect('id-old', exampleFunctionReal, exampleFunctionMock);
+
+//New way of creating effect(V2.1.0+) - ensures real effect and mock effect has the same contract
+const effect = SideEffectJS.CreateEffectTyped<GetValue, string>('xxx', exampleFunctionReal, exampleFunctionMock);
+
+```
+
+**V2.0.0:** - *04/26/2020* <br/>
 Instead of using `SideEffectJS.UseSimulator()` - which forces you to change code -> use `SIMULATE_SIDE_EFFECTS=1` or `REACT_APP_SIMULATE_SIDE_EFFECTS=1` for CRA apps.
 `SideEffectJS.UseSimulator()` is still an option but it forces you to change code before merging.
 Read more on Create React App .env: <br/> https://create-react-app.dev/docs/adding-custom-environment-variables/
