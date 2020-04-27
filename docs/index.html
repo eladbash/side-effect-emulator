@@ -69,11 +69,11 @@
 					<h1>Side Effect JS <img src="https://github.com/eladbash/side-effect-emulator/workflows/side-effect-js%20CI/badge.svg" alt="side-effect-js CI"></h1>
 				</a>
 				<p>Easy to setup and use - 3 lines of configuration and you can test your single page application like it&#39;s really connected to an API / Writes to files etc.</p>
-				<a href="#versions" id="versions" style="color: inherit; text-decoration: none;">
-					<h2>Versions:</h2>
+				<a href="#version" id="version" style="color: inherit; text-decoration: none;">
+					<h2>Version:</h2>
 				</a>
 				<ul>
-					<li>V2.0.0 - Current</li>
+					<li>V2.1.0</li>
 				</ul>
 				<a href="#how-to-use" id="how-to-use" style="color: inherit; text-decoration: none;">
 					<h2>How to use:</h2>
@@ -196,7 +196,26 @@
 				<a href="#release-notes" id="release-notes" style="color: inherit; text-decoration: none;">
 					<h2>Release notes:</h2>
 				</a>
-				<p><strong>V2.0.0:</strong> <br/>
+				<p><strong>V2.1.0:</strong> - <em>04/27/2020</em> <br/>
+					<em><code>Deprecated (ts only):</code></em><br/>
+					For TypeScript only - <code>CreateEffect</code> is deprecated (backward compatible), instead use: <code>CreateEffectTyped</code>.
+				Typescript usage example:</p>
+				<pre><code class="language-typescript"><span class="hljs-comment">//Example.ts</span>
+<span class="hljs-keyword">type</span> GetValue = {
+    username: <span class="hljs-built_in">string</span>,
+    passowrd: <span class="hljs-built_in">string</span>
+}
+
+<span class="hljs-keyword">const</span> exampleFunctionReal = (loginDetails: GetValue): <span class="hljs-function"><span class="hljs-params">string</span> =&gt;</span> {
+    <span class="hljs-keyword">return</span> <span class="hljs-string">"real"</span>;
+}
+
+<span class="hljs-keyword">const</span> exampleFunctionMock = (loginDetails: GetValue): <span class="hljs-function"><span class="hljs-params">string</span> =&gt;</span> {
+    <span class="hljs-keyword">return</span> <span class="hljs-string">"mock"</span>;
+}
+
+<span class="hljs-keyword">const</span> effect = SideEffectJS.CreateEffectTyped&lt;GetValue, <span class="hljs-built_in">string</span>&gt;(<span class="hljs-string">'xxx'</span>, exampleFunctionReal, exampleFunctionMock);</code></pre>
+				<p><strong>V2.0.0:</strong> - <em>04/26/2020</em> <br/>
 					Instead of using <code>SideEffectJS.UseSimulator()</code> - which forces you to change code -&gt; use <code>SIMULATE_SIDE_EFFECTS=1</code> or <code>REACT_APP_SIMULATE_SIDE_EFFECTS=1</code> for CRA apps.
 					<code>SideEffectJS.UseSimulator()</code> is still an option but it forces you to change code before merging.
 				Read more on Create React App .env: <br/> <a href="https://create-react-app.dev/docs/adding-custom-environment-variables/">https://create-react-app.dev/docs/adding-custom-environment-variables/</a></p>

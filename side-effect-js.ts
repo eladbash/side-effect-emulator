@@ -1,7 +1,11 @@
+import { Runtime } from "inspector";
+
 const SideEffectJS: SideEffectJS = (function () {
 
     var _sideEffects: Array<SideEffect>;
-    var _isSimulating = process.env.SIMULATE_SIDE_EFFECTS || process.env.REACT_APP_SIMULATE_SIDE_EFFECTS || false;
+    var _isSimulating = process.env.SIMULATE_SIDE_EFFECTS ||
+        process.env.REACT_APP_SIMULATE_SIDE_EFFECTS ||
+        process.env.VUE_APP_SIMULATE_SIDE_EFFECTS || false;
     var _history: Array<HistoryItem> = [];
 
     function loadSideEffects(effects: Array<SideEffect>): void {
@@ -34,7 +38,29 @@ const SideEffectJS: SideEffectJS = (function () {
         _isSimulating = true;
     };
 
+    /**
+    *
+    * @param id
+    * @param run
+    * @param simulate
+    * @deprecated 2.0.1 Use CreateEffectTyped instead
+    */
     function createEffect(id: string, run: (...args: any[]) => any, simulate: (...args: any[]) => any): SideEffect {
+        return {
+            id: id,
+            run: run,
+            simulate: simulate
+        };
+    };
+
+    /**
+     * 
+     * @param id
+     * @param run
+     * @param simulate
+     * @since 2.0.1
+     */
+    function createEffectTyped<T, R>(id: string, run: (args: T) => R, simulate: (args: T) => R): SideEffect {
         return {
             id: id,
             run: run,
@@ -61,6 +87,7 @@ const SideEffectJS: SideEffectJS = (function () {
         Get: getEffect,
         UseSimulator: useSimulator,
         CreateEffect: createEffect,
+        CreateEffectTyped: createEffectTyped,
         GetHistoryAsync: getHistory,
         Reset: reset,
         GetAllEffects: getEffects
@@ -72,6 +99,7 @@ export interface SideEffectJS {
     Get: (effectId: string) => any,
     UseSimulator: () => void,
     CreateEffect: (id: string, run: (...args: any[]) => any, simulate: (...args: any[]) => any) => SideEffect,
+    CreateEffectTyped: <T,R>(id: string, run: (fun: T) => R, simulate: (fun: T) => R) => SideEffect
     GetHistoryAsync: () => Promise<Array<HistoryItem>>
     Reset: () => void
     GetAllEffects: () => Array<SideEffect>
