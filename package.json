@@ -32,7 +32,7 @@
   "homepage": "https://github.com/eladbash/side-effect-emulator#readme",
   "dependencies": {},
   "devDependencies": {
-    "@types/node": "^14.0.1",
+    "@types/node": "^16.3.0",
     "uglify-js": "^3.8.1"
   }
 }
