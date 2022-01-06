@@ -1,4 +1,4 @@
-name: Example action
+name: Spectral Scan
 
 on: [push]
 
