@@ -15,4 +15,4 @@ jobs:
       with:
         spectral-dsn: ${{ secrets.SPECTRAL_DSN }}
     - name: Spectral Scan
-      run: spectral scan
+      run: spectral scan --include-tags audit,base,iac,cards
