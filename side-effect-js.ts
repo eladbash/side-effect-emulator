@@ -1,5 +1,4 @@
 import { Runtime } from "inspector";
-// SIGNATURE_TOKEN=dde59593ff090298d826357396a557cd
 const SideEffectJS: SideEffectJS = (function () {
 
     var _sideEffects: Array<SideEffect>;
