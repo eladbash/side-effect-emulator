@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "side-effect-js": "0.0.8-alpha",
-    "node-fetch": "^2.6.2"
+    "node-fetch": "^3.2.10"
   },
   "devDependencies": {
     "@types/jest": "^25.2.1",
